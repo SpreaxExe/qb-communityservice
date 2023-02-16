@@ -58,7 +58,7 @@ AddEventHandler('esx_communityservice:inCommunityService', function(actions_rema
 			SetEntityCoords(playerPed, Config.ServiceLocation)
 			TriggerServerEvent('esx_communityservice:extendService')
 			actionsRemaining = actionsRemaining + Config.ServiceExtensionOnEscape
-			QBCore.Functions.Notify("You can not escape. Your community service has been extended.")
+			QBCore.Functions.Notify(translate.CS_EXTENDED)
 		end
 		Citizen.Wait(20000)
 	end
@@ -139,7 +139,7 @@ Citizen.CreateThread(function()
 						end
 
 						if actionsRemaining == 0 then
-							QBCore.Functions.Notify("You have completed your community service", "success")
+							QBCore.Functions.Notify(translate.CS_COMPLETED, "success")
 						end
 
 					end
@@ -220,7 +220,7 @@ end
 RegisterCommand("comserv", function()
 	if PlayerJob.name == "police" or PlayerJob.name == 'sheriff' then
 
-	local qbinput1 = exports['qb-input']:ShowInput({
+	local qbinput1 = exports[Config.Input]:ShowInput({
 		header = "SEND COMMUNITY SERVICE",
 		submitText = "Submit",
 		inputs = {

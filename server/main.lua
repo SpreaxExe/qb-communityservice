@@ -1,4 +1,4 @@
-QBCore = exports['qb-core']:GetCoreObject()
+QBCore = exports[Config.GetCoreObjectQBCore]:GetCoreObject()
 
 RegisterServerEvent('esx_communityservice:finishCommunityService')
 AddEventHandler('esx_communityservice:finishCommunityService', function(key)
@@ -50,9 +50,9 @@ local kamu = data.kamu
 			local count = tonumber(kamu)
 			TriggerClientEvent("esx_communityservice:inCommunityService", tPlayer.PlayerData.source, count)
 			tPlayer.Functions.SetMetaData("communityservice", count)
-			TriggerClientEvent("QBCore:Notify", src, "Player has been sentenced of community service.")
+			TriggerClientEvent("QBCore:Notify", src, translate.CS_PLAYERSENTENCED)
 		else
-			TriggerClientEvent("QBCore:Notify", source, "There Is No Such Player!", "error")
+			TriggerClientEvent("QBCore:Notify", source, translate.CS_NOPLAYERFOUND, "error")
 				end
 	end
 end)
@@ -65,7 +65,7 @@ QBCore.Commands.Add("endcomserv", "", {{name="id", help="Player ID"}}, true, fun
 			tPlayer.Functions.SetMetaData("communityservice", 0)
 			TriggerClientEvent('esx_communityservice:finishCommunityService', tPlayer.PlayerData.source)
 		else
-			TriggerClientEvent("QBCore:Notify", source, "There Is No Such Player!", "error")
+			TriggerClientEvent("QBCore:Notify", source, translate.CS_NOPLAYERFOUND, "error")
 		end
 	end
 end)
