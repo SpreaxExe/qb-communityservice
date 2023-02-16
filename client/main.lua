@@ -80,7 +80,7 @@ Citizen.CreateThread(function()
 		local time = 3000
 		if actionsRemaining > 0 and isSentenced then
 			time = 1
-			draw2dText("~b~" .."You have " ..QBCore.Shared.Round(actionsRemaining).. ' ~b~ ~s~ more actions to complete before you can finish your service.', { 0.70, 0.955 } )
+			draw2dText("~b~" ..translate.CS_HOWMUCH ..QBCore.Shared.Round(actionsRemaining).. ' ~b~ ~s~ ' translate.CS_ACTIONS, { 0.70, 0.955 } )
 			DrawAvailableActions()
 			DisableViolentActions()
 
@@ -221,8 +221,8 @@ RegisterCommand("comserv", function()
 	if PlayerJob.name == "police" or PlayerJob.name == 'sheriff' then
 
 	local qbinput1 = exports[Config.Input]:ShowInput({
-		header = "SEND COMMUNITY SERVICE",
-		submitText = "Submit",
+		header = translate.CS_HEADER,
+		submitText = translate.CS_SUBMIT,
 		inputs = {
             {
                 text = "Player ID", 

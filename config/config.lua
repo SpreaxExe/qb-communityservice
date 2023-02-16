@@ -50,3 +50,7 @@ CS_EXTENDED = "You can not escape. Your community service has been extended."
 CS_COMPLETED = "You have completed your community service"
 CS_PLAYERSENTENCED = "Player has been sentenced of community service."
 CS_NOPLAYERFOUND = "There Is No Such Player!"
+CS_ACTIONS = 'more actions to complete before you can finish your service.'
+CS_HOWMUCH = "You have "
+CS_HEADER = "SEND COMMUNITY SERVICE"
+CS_SUBMIT = "Submit"
